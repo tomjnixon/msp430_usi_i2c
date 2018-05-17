@@ -139,7 +139,7 @@ void USI_TXRX(void)
     USICTL0 &= ~(USIGE|USIOE);  // Latch/SDA output disabled
     i2c_state = I2C_IDLE;       // Reset state machine for next xmt
     if(i2c_wakeup_sr_bits) {
-      _bic_SR_register_on_exit(i2c_wakeup_sr_bits); // exit active if prompted to
+      __bic_SR_register_on_exit(i2c_wakeup_sr_bits); // exit active if prompted to
     }
     break;
   }
