@@ -147,12 +147,12 @@ void USI_TXRX(void)
 }
 
 void i2c_init(uint16_t usi_clock_divider, uint16_t usi_clock_source) {
-  _disable_interrupts();
+  __dint();
   USICTL0 = USIPE6|USIPE7|USIMST|USISWRST;  // Port & USI mode setup
   USICTL1 = USII2C|USIIE;                   // Enable I2C mode & USI interrupt
   USICKCTL = usi_clock_divider | usi_clock_source | USICKPL;
   USICNT |= USIIFGCC;                       // Disable automatic clear control
   USICTL0 &= ~USISWRST;                     // Enable USI
   USICTL1 &= ~USIIFG;                       // Clear pending flag
-  _enable_interrupts();
+  __eint();
 }
