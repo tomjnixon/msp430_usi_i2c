@@ -54,7 +54,7 @@ typedef enum i2c_state_enum {
   I2C_PREPARE_STOP = 10,
   I2C_STOP = 12} i2c_state_type;
 
-extern i2c_state_type i2c_state;
+extern volatile i2c_state_type i2c_state;
 
 // Use this to check whether a previously scheduled I2C sequence has been fully processed.
 inline unsigned int i2c_done() {

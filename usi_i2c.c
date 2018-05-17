@@ -33,7 +33,7 @@ static uint16_t const *i2c_sequence;
 static uint16_t i2c_sequence_length;
 static uint8_t *i2c_receive_buffer;
 static uint16_t i2c_wakeup_sr_bits;
-i2c_state_type i2c_state = I2C_IDLE;
+volatile i2c_state_type i2c_state = I2C_IDLE;
 
 static inline void i2c_prepare_stop();
 static inline void i2c_prepare_data_xmit_recv();
