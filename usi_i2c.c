@@ -26,6 +26,8 @@
 #include <stdint.h>
 #include "usi_i2c.h"
 
+#define __even_in_range(a,b) (a)
+
 // Internal state
 static uint16_t const *i2c_sequence;
 static uint16_t i2c_sequence_length;
